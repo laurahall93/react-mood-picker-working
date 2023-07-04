@@ -4,7 +4,7 @@ function MoodPickerDemo(): JSX.Element {
   const [moodValueFromCurrentRender, queueRerenderWithNewMoodValue] =
     useState("");
   const [favouriteMoodValueFromCurrentRender, queueRerenderWithNewFavouriteMood] =
-    useState("");
+    useState<string[]>([]);
 
   const handleMoodChangeToBathTime = () => {
     queueRerenderWithNewMoodValue("🛀🏻");
@@ -43,7 +43,10 @@ function MoodPickerDemo(): JSX.Element {
   };
 
   const handleStoreCurrentMood = () => {
-    queueRerenderWithNewFavouriteMood(moodValueFromCurrentRender);
+    queueRerenderWithNewFavouriteMood([
+      ...favouriteMoodValueFromCurrentRender, 
+      moodValueFromCurrentRender,
+    ]);
   };
 
   
