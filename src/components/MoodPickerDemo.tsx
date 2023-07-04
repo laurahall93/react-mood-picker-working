@@ -2,43 +2,68 @@ import { useState } from "react";
 
 function MoodPickerDemo(): JSX.Element {
   const [moodValueFromCurrentRender, queueRerenderWithNewMoodValue] =
-    useState("confused");
+    useState("");
+  const [favouriteMoodValueFromCurrentRender, queueRerenderWithNewFavouriteMood] =
+    useState("");
 
-  const handleMoodChangeToHappy = () => {
-    queueRerenderWithNewMoodValue("happy");
+  const handleMoodChangeToBathTime = () => {
+    queueRerenderWithNewMoodValue("🛀🏻");
   };
 
-  const handleMoodChangeToConfused = () => {
-    queueRerenderWithNewMoodValue("confused");
+  const handleMoodChangeToOld = () => {
+    queueRerenderWithNewMoodValue("👵🏼");
   };
 
-  const handleMoodChangeToSad = () => {
-    queueRerenderWithNewMoodValue("sad");
+  const handleMoodChangeToStrong = () => {
+    queueRerenderWithNewMoodValue("💪");
   };
   
-  const handleMoodChangeToCry = () => {
-    queueRerenderWithNewMoodValue("cry");
+  const handleMoodChangeToVerySad = () => {
+    queueRerenderWithNewMoodValue("😭");
   };
   
   const handleMoodChangeToBlesed = () => {
-    queueRerenderWithNewMoodValue("blesed");
+    queueRerenderWithNewMoodValue("😇");
   };
 
   const handleMoodChangeToWoried = () => {
-    queueRerenderWithNewMoodValue("woried");
+    queueRerenderWithNewMoodValue("😰");
+  };
+  const handleMoodChangeToRelaxed = () => {
+    queueRerenderWithNewMoodValue("💆‍♀️");
+  };
+  const handleMoodChangeToLoveCats = () => {
+    queueRerenderWithNewMoodValue("😻");
+  };
+  const handleMoodChangeToDead = () => {
+    queueRerenderWithNewMoodValue("☠️");
+  };
+  const handleMoodChangeToSmart = () => {
+    queueRerenderWithNewMoodValue("🤓");
+  };
+
+  const handleStoreCurrentMood = () => {
+    queueRerenderWithNewFavouriteMood(moodValueFromCurrentRender);
   };
 
   
   return (
     <>
-      <h1>Mood Picker Demo</h1>
-      <p>Chosen mood: {moodValueFromCurrentRender.toUpperCase()}</p>
-      <button onClick={handleMoodChangeToHappy}>😀</button>
-      <button onClick={handleMoodChangeToConfused}>🤔</button>
-      <button onClick={handleMoodChangeToSad}>😢</button>
-      <button onClick={handleMoodChangeToCry}> 😭</button>
+      <h1>Lauras Mood Picker</h1>
+      <p>My mood right here, right now: {favouriteMoodValueFromCurrentRender}</p>
+      <p>My new vibe: {moodValueFromCurrentRender}</p>
+      <button onClick={handleMoodChangeToBathTime}>🛀🏻</button>
+      <button onClick={handleMoodChangeToOld}>👵🏼</button>
+      <button onClick={handleMoodChangeToStrong}>💪</button>
+      <button onClick={handleMoodChangeToVerySad}>😭</button>
       <button onClick={handleMoodChangeToBlesed}>😇</button>
       <button onClick={handleMoodChangeToWoried}>😰</button>
+      <button onClick={handleMoodChangeToRelaxed}>💆‍♀️</button>
+      <button onClick={handleMoodChangeToLoveCats}>😻</button>
+      <button onClick={handleMoodChangeToDead}>☠️</button>
+      <button onClick={handleMoodChangeToSmart}>🤓</button>
+      <hr />
+      <button onClick={handleStoreCurrentMood}> Set my new vibe</button>
     </>
   );
 }
