@@ -53,7 +53,12 @@ function MoodPickerDemo(): JSX.Element {
   return (
     <>
       <h1>Lauras Mood Picker</h1>
-      <p>My mood right here, right now: {favouriteMoodValueFromCurrentRender}</p>
+      <p>My mood right here, right now:</p> 
+      <ul>
+        {favouriteMoodValueFromCurrentRender.map((mood, index) => (
+          <li key={index}>{mood}</li>
+        ))}
+      </ul>
       <p>My new vibe: {moodValueFromCurrentRender}</p>
       <button onClick={handleMoodChangeToBathTime}>🛀🏻</button>
       <button onClick={handleMoodChangeToOld}>👵🏼</button>
